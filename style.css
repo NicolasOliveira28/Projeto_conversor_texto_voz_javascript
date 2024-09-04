@@ -16,6 +16,7 @@
   color: #fff;
   text-align: center;
   gap: 20px;
+  padding: 20px;
 }
 
 .container h1 {
@@ -32,10 +33,11 @@
   width: 80%;
   gap: 20px;
   align-items: center;
+  flex-direction: column;
 }
 
 #entrada-de-conteudo textarea {
-  width: 80%;
+  width: 100%;
   height: 150px;
   border: none;
   border-radius: 5px;
@@ -53,12 +55,16 @@ input[type="file"] {
   align-items: center;
   gap: 10px;
   width: 80%;
+  flex-wrap: wrap; /* Permite que os elementos quebrem de linha */
 }
 
 .acao-box {
   padding: 15px;
   gap: 15px;
   flex: 1;
+  min-width: calc(
+    50% - 10px
+  ); /* Garantir que cada box ocupe metade do espaço, menos o gap */
 }
 
 .acoes select,
@@ -69,7 +75,7 @@ input[type="file"] {
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  width: 50%;
+  width: 100%;
   font-weight: bold;
   cursor: pointer;
 }
@@ -81,17 +87,48 @@ input[type="file"] {
 .acoes button {
   background-color: #ed9222;
   color: #fff;
-
   transition: 0.3s;
 }
 
 #arquivo-label {
-  font-size: 20px;
-  padding: 15px;
+  font-size: 16px;
+  padding: 10px;
   background-color: #ed9222;
 }
 
 .acoes button:hover,
 #arquivo-label:hover {
   background-color: #d48a35;
+}
+
+/* Estilos responsivos para smartphones */
+@media (max-width: 600px) {
+  .container h1 {
+    font-size: 28px;
+  }
+
+  #entrada-de-conteudo {
+    width: 100%;
+    gap: 10px;
+  }
+
+  #entrada-de-conteudo textarea {
+    height: 120px;
+  }
+
+  .acoes {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .acao-box {
+    padding: 10px;
+    min-width: 100%; /* Ajusta para 100% em telas muito pequenas */
+  }
+
+  #arquivo-label {
+    font-size: 16px;
+    padding: 10px;
+    width: 100%;
+  }
 }
